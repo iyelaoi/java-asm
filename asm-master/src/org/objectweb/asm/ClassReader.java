@@ -38,7 +38,7 @@ import java.io.InputStream;
  * calls the appropriate visit methods of a given class visitor for each field,
  * method and bytecode instruction encountered.
  *
- * Java class文件的解析器
+ * Java class 字节码解析，开始阅读
  *
  * @author Eric Bruneton
  * @author Eugene Kuleshov
