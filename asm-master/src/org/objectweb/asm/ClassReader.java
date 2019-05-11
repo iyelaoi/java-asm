@@ -172,7 +172,7 @@ public class ClassReader {
             throw new IllegalArgumentException();
         }
         // parses the constant pool
-        items = new int[readUnsignedShort(off + 8)];
+        items = new int[readUnsignedShort(off + 8)]; //读取常量池中常量个数，创建数组存储每个常量的索引
         int n = items.length;
         strings = new String[n];
         int max = 0;
