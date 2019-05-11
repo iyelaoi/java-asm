@@ -1,6 +1,6 @@
 /***
  * ASM: a very small and fast Java bytecode manipulation framework
- * 我的注释：小而快的Java字节码操作框架
+ * 小而快的Java字节码操作框架
  * Copyright (c) 2000-2011 INRIA, France Telecom
  * All rights reserved.
  *
