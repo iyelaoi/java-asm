@@ -49,7 +49,10 @@ public class ClassWriter extends ClassVisitor {
      * {@link MethodVisitor} returned by the {@link #visitMethod visitMethod}
      * method will be ignored, and computed automatically from the signature and
      * the bytecode of each method.
-     * 
+     * 如果设置了这个值，则visitMethod 返回的 MethodVisitor 的visitMaxs方法的
+     * 参数将会被忽略，重新由每个方法的字节码计算
+	 *
+	 *
      * @see #ClassWriter(int)
      */
     public static final int COMPUTE_MAXS = 1;
@@ -62,7 +65,8 @@ public class ClassWriter extends ClassVisitor {
      * {@link MethodVisitor#visitMaxs visitMaxs} method are also ignored and
      * recomputed from the bytecode. In other words, computeFrames implies
      * computeMaxs.
-     * 
+     * 如果设置为这个值，则忽略手动传入的参数值
+     * 栈帧本地变量和操作数栈都由字节码自动计算，不需要调用visitFrame和visitMaxs方法，即使调用也会被忽略。
      * @see #ClassWriter(int)
      */
     public static final int COMPUTE_FRAMES = 2;
@@ -610,10 +614,10 @@ public class ClassWriter extends ClassVisitor {
      *            {@link #COMPUTE_FRAMES}.
      */
     public ClassWriter(final int flags) {
-        super(Opcodes.ASM5);
-        index = 1;
-        pool = new ByteVector();
-        items = new Item[256];
+        super(Opcodes.ASM5); //校验版本
+        index = 1; //
+        pool = new ByteVector(); //ByteVector高效的字节数组流
+        items = new Item[256]; //常量池常量数组，常量池长度由u2定义
         threshold = (int) (0.75d * items.length);
         key = new Item();
         key2 = new Item();

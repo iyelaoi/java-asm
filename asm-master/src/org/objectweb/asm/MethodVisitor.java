@@ -275,7 +275,8 @@ public abstract class MethodVisitor {
      * and access flags, is implicit and must not be visited. Also, it is
      * illegal to visit two or more frames for the same code location (i.e., at
      * least one instruction must be visited between two calls to visitFrame).
-     * 
+     * 在asm中可以通过visitMaxs来指定本地变量表与操作数栈的大小。
+     * visitFrame方法可以指定栈帧中的本地变量与操作数。
      * @param type
      *            the type of this stack map frame. Must be
      *            {@link Opcodes#F_NEW} for expanded frames, or
@@ -865,7 +866,8 @@ public abstract class MethodVisitor {
     /**
      * Visits the maximum stack size and the maximum number of local variables
      * of the method.
-     * 
+     * * 在asm中可以通过visitMaxs来指定本地变量表与操作数栈的大小。
+     * visitFrame方法可以指定栈帧中的本地变量与操作数。
      * @param maxStack
      *            maximum stack size of the method.
      * @param maxLocals
